@@ -44,11 +44,6 @@ public class App {
         if(trigger != 1) {
             System.out.println("The largest number is " + df.format(b));
         }
-        /*if (b % 1 == 0){
-            System.out.printf("The largest number is "+"%.0f",b);
-        }else {
-            System.out.printf("The largest number is "+"%.2f", b);
-        }*/
     }
 
     //todo Task 2
@@ -171,7 +166,6 @@ public class App {
             System.out.print("Mark "+counter+": ");
             a = sc.nextFloat();
 
-
             if (a < 1 || a > 5){
                 if (a == 0 && counter > 2){
                     counter--;
@@ -191,6 +185,7 @@ public class App {
 
             counter++;
         }while(check != 1);
+        sc.close();
 
         average = b / (counter-1);
         System.out.println("Average: "+df.format(average));
@@ -200,7 +195,35 @@ public class App {
     //todo Task 6
     public void happyNumbers(){
         // input your solution here
+        Scanner sc = new Scanner(System.in);                        //https://www.educba.com/happy-numbers-in-java/
 
+        int n;
+        int r;
+        int num;
+        int sum = 0;                    //Stop this torture please xd
+                                        // I will definitely not be a programmer
+        System.out.print("n: ");
+        n = sc.nextInt();
+        num = n;
+        while (num > 9)
+        {
+            while (num > 0)
+            {
+                r = num % 10;
+                sum = sum + (r * r);
+                num = num / 10;
+            }
+            num = sum;
+            sum = 0;
+        }
+        if (num == 1)
+        {
+            System.out.println("Happy number!");
+        }
+        else
+        {
+            System.out.println("Sad number!");
+        }
     }
 
     public static void main(String[] args){
